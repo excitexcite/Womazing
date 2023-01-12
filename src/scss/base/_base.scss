@@ -10,19 +10,70 @@ html {
 	// scroll-padding-top: var(--scroll-padding, rem(106));
 }
 
+:root {
+	--section-spacing: rem(100);
+	--block-spacing: rem(16);
+
+	--primary500: #5952d1;
+	--primary400: #6c63ff;
+	--primary300: #9e99ff;
+	--primary200: #c5c2ff;
+	--primary100: #ecebff;
+	--secondary500: #fc4a6e;
+	--secondary400: #fd6584;
+	--secondary300: #fd9bae;
+	--secondary200: #fed7df;
+	--secondary100: #feebef;
+	--neutral500: #2f2e41;
+	--neutral400: #717082;
+	--neutral300: #9893a3;
+	--neutral200: #cfcfde;
+	--neutral100: #ffffff;
+
+	--bg-color: var(--neutral100);
+	--box-shadow-common: 0 0px 20px rgb(194, 194, 194);
+}
+
+:root.dark-theme {
+	--bg-color: #12111a;
+	--box-shadow-common: 0 0px 20px rgb(50, 50, 50);
+
+	.img-dark {
+		filter: brightness(0.8) contrast(1.2);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	/* defaults to dark theme */
+	:root {
+		--bg-color: #12111a;
+		--box-shadow-common: 0 0px 20px rgb(70, 70, 70);
+
+		.img-dark {
+			filter: brightness(0.8) contrast(1.2);
+		}
+	}
+
+	:root.light-theme {
+		--box-shadow-common: 0 0px 20px rgb(194, 194, 194);
+		--bg-color: var(--neutral100);
+	}
+}
+
 *,
 *::before,
 *::after {
 	box-sizing: inherit;
+	// transition: $themeColorTransition;
 }
 
 body {
+	margin: 0;
+	height: 100%;
 	font-family: Inter, sans-serif;
 	font-weight: 400;
 	font-size: rem($baseFontSize);
 	line-height: math.div(16, 16);
-	margin: 0;
-	height: 100%;
 }
 
 body.scroll-lock {
@@ -72,7 +123,7 @@ textarea {
 }
 
 button {
-	background-color: $clr-white;
+	background-color: red;
 	padding: 0;
 	border-width: 0;
 	font-family: inherit;
@@ -93,10 +144,6 @@ button {
 	// }
 }
 
-h1 {
-	margin: 0;
-}
-
 input {
 	padding: 0;
 }
@@ -109,7 +156,7 @@ fieldset {
 
 input,
 textarea {
-	border: 1px solid $grey-line;
+	border: 1px solid red;
 	background-color: white;
 	border-radius: 6px;
 }
@@ -148,7 +195,8 @@ s::after {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
+	overflow: hidden;
+	// overflow-x: hidden;
 	min-height: 100%;
 	/// need for position:sticky in header or remove overflow
 	/// height: 100%;
@@ -160,10 +208,10 @@ s::after {
 
 [class*="__container"] {
 	max-width: em($maxWidthContainer);
-	margin: 0 auto;
-	padding: 0 10px;
+	margin-inline: auto;
+	padding-inline: 10px;
 
-	@media screen and (min-width: em(390)) {
-		padding: 0 20px;
+	@include mqm($mobile) {
+		padding-inline: 20px;
 	}
 }

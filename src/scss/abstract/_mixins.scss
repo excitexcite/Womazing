@@ -3,11 +3,15 @@
 @use "_functions.scss" as *;
 
 /// https://www.smashingmagazine.com/2016/05/fluid-typography/#controlling-the-rate-of-scale
-@mixin adaptive-font($mobileFontSize, $pcFontSize) {
+@mixin adaptive-font(
+	$mobileFontSize,
+	$pcFontSize,
+	$maxWidthStopGrowth: $maxWidthContainer
+) {
 	$fMin: rem($mobileFontSize);
 	$fMax: rem($pcFontSize);
 	$minW: rem($minWidth);
-	$maxW: rem($maxWidthContainer);
+	$maxW: rem($maxWidthStopGrowth);
 	font-size: $fMin;
 	@media screen and (min-width: em($minWidth)) {
 		font-size: calc(
@@ -15,27 +19,40 @@
 				((100vw - #{$minWidth + px}) / #{stripUnits($maxW - $minW)})
 		);
 	}
-	@media screen and (min-width: em($maxWidthContainer)) {
+	@media screen and (min-width: em($maxWidthStopGrowth)) {
 		font-size: $fMax;
 	}
 }
 
-@mixin adaptive-value-px($property, $initialSize, $minSize, $type) {
-	$addSize: $initialSize - $minSize;
+@mixin adaptive-value-px(
+	$property,
+	$minSize,
+	$maxSize,
+	$type,
+	$maxWidthStopGrowth: $maxWidthContainer,
+	$minWidthStopShrink: $minWidth
+) {
+	$addSize: $maxSize - $minSize;
 	@if $type == 1 {
-		#{$property}: $initialSize + px;
-		@media (max-width: #{$maxWidthContainer + px}) {
+		#{$property}: $maxSize + px;
+		@media screen and (max-width: #{$maxWidthStopGrowth + px}) {
 			#{$property}: calc(
 				#{$minSize + px} + #{$addSize} *
-					((100vw - #{$minWidth + px}) / #{$maxWidthContainer - $minWidth})
+					(
+						(100vw - #{$minWidthStopShrink + px}) / #{$maxWidthStopGrowth -
+							$minWidthStopShrink}
+					)
 			);
 		}
 	} @else if $type == 2 {
-		#{$property}: $initialSize + px;
-		@media (min-width: #{$maxWidthContainer + px}) {
+		#{$property}: $maxSize + px;
+		@media screen and (min-width: #{$maxWidthStopGrowth + px}) {
 			#{$property}: calc(
 				#{$minSize + px} + #{$addSize} *
-					((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth})
+					(
+						(100vw - #{$minWidthStopShrink + px}) / #{$maxWidth -
+							$minWidthStopShrink}
+					)
 			);
 		}
 	} @else {
@@ -43,44 +60,56 @@
 			#{$minSize +
 				px} +
 				#{$addSize} *
-				((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth})
+				(
+					(100vw - #{$minWidthStopShrink + px}) /
+						#{$maxWidth -
+						$minWidthStopShrink}
+				)
 		);
 	}
 }
 
-@mixin adaptive-value($property, $initialSize, $minSize, $type, $measure: rem) {
+@mixin adaptive-value(
+	$property,
+	$minSize,
+	$maxSize,
+	$type,
+	$maxWidthStopGrowth: $maxWidthContainer,
+	$minWidthStopShrink: $minWidth,
+	$measure: rem
+) {
 	@if ($measure == "em") {
-		$initialSize: em($initialSize);
+		$maxSize: em($maxSize);
 		$minSize: em($minSize);
 	} @else if ($measure == "rem") {
-		$initialSize: rem($initialSize);
+		$maxSize: rem($maxSize);
 		$minSize: rem($minSize);
 	} @else {
-		$initialSize: stripUnits($initialSize);
+		$maxSize: stripUnits($maxSize);
 		$minSize: stripUnits($minSize);
 	}
-	$addSize: $initialSize - $minSize;
+	$addSize: $maxSize - $minSize;
 	@if $type == 1 {
-		#{$property}: $initialSize;
+		#{$property}: $maxSize;
 
-		@media (max-width: em($maxWidthContainer)) {
+		@media screen and (max-width: em($maxWidthStopGrowth)) {
 			#{$property}: calc(
 				#{$minSize} + #{stripUnits($addSize)} *
 					(
-						(100vw - #{$minWidth + px}) / #{stripUnits(
-								em($maxWidthContainer - $minWidth)
+						(100vw - #{$minWidthStopShrink + px}) / #{stripUnits(
+								em($maxWidthStopGrowth - $minWidthStopShrink)
 							)}
 					)
 			);
 		}
 	} @else if $type == 2 {
-		#{$property}: $initialSize;
-		@media (min-width: em($maxWidthContainer)) {
+		#{$property}: $maxSize;
+		@media screen and (min-width: em($maxWidthStopGrowth)) {
 			#{$property}: calc(
 				#{$minSize} + #{stripUnits($addSize)} *
 					(
-						(100vw - #{$minWidth + px}) / #{stripUnits(
-								em($maxWidth - $minWidth)
+						(100vw - #{$minWidthStopShrink + px}) / #{stripUnits(
+								em($maxWidth - $minWidthStopShrink)
 							)}
 					)
 			);
@@ -89,21 +118,24 @@
 		#{$property}: calc(
 			#{$minSize} +
 				#{stripUnits($addSize)} *
-				((100vw - #{$minWidth + px}) / #{stripUnits(em($maxWidth - $minWidth))})
+				(
+					(100vw - #{$minWidthStopShrink + px}) /
+						#{stripUnits(em($maxWidth - $minWidthStopShrink))}
+				)
 		);
 	}
 }
 
 @mixin mqd($bp) {
-	$w: em($bp - 0.1);
-	@media (max-width: $w) {
+	$w: em($bp);
+	@media screen and (max-width: $w) {
 		@content;
 	}
 }
 
 @mixin mqm($bp) {
-	$w: em($bp - 0.1);
-	@media (min-width: $w) {
+	$w: em($bp);
+	@media screen and (min-width: $w) {
 		@content;
 	}
 }

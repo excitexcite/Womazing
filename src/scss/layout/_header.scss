@@ -3,7 +3,7 @@
 @use "sass:math";
 
 .header {
-	background-color: $clr-white;
+	background-color: red;
 	position: fixed;
 	// position: sticky;
 	width: 100%;
@@ -15,26 +15,27 @@
 
 .menu-button {
 	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	position: relative;
 	z-index: 5;
-	min-width: rem(32);
+	min-width: rem(25);
 	height: rem(20);
 	background-color: transparent;
 	cursor: pointer;
 
-	@include mqm(768) {
+	@include mqm($pc) {
 		display: none;
 	}
 
 	&__icon,
 	&::after,
 	&::before {
-		position: absolute;
-		left: 0;
-		height: 1.5px;
+		display: block;
+		height: rem(3);
 		width: 100%;
 		transition: all 300ms ease 0ms;
-		background-color: $clr-black;
+		background-color: red;
 	}
 
 	&::after,
@@ -43,16 +44,11 @@
 	}
 
 	&::before {
-		top: 0;
+		transform-origin: 0% 0%;
 	}
 
 	&::after {
-		top: 100%;
-		width: 60%;
-	}
-
-	&__icon {
-		top: 50%;
+		transform-origin: 0% 100%;
 	}
 
 	&--active &__icon {
@@ -60,13 +56,45 @@
 	}
 
 	&--active::before {
-		top: 50%;
-		transform: rotate(-45deg) translate(0, -50%);
+		transform: rotate(45deg);
 	}
 
 	&--active::after {
-		width: 100%;
-		top: 50%;
-		transform: rotate(45deg) translate(0, 50%);
+		transform: rotate(-45deg);
+	}
+}
+
+.menu__body {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: rem(16);
+	position: absolute;
+	top: 100%;
+	left: 0;
+	transform: translateX(150%);
+	width: 100%;
+	height: 100vh;
+	padding: rem(55) rem(20) rem(156);
+	overflow: auto;
+	visibility: hidden;
+	background-color: var(--bg-color);
+	transition: transform 300ms ease-in-out 0ms, visibility 300ms ease-in-out 0ms;
+	z-index: 10;
+
+	&--active {
+		transform: translateX(0);
+		visibility: visible;
+	}
+
+	@include mqm($pc) {
+		background-color: transparent;
+		flex-direction: row;
+		position: revert;
+		transform: revert;
+		height: auto;
+		padding: 0;
+		overflow: hidden;
+		visibility: revert;
 	}
 }
