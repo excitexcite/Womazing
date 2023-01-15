@@ -1,7 +1,7 @@
-# PROJECT NAME
+# Womazing
 
 > Example of a site for SOME PURPOSE.
-> Live demo [_here_](https://excitexcite.github.io/GITHUB_REPO_NAME/), design is [_here_](<LINK TO FIGMA DESIGN>).
+> Live demo [_here_](https://excitexcite.github.io/Womazing/), design is [_here_](<https://www.figma.com/file/Chdi3n3omQivBSvi7g49dJ/WOMAZING-%2B-(Copy)?node-id=0%3A1&t=GkxfL6EHwa024JRV-1>).
 
 ## General Information
 

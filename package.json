@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "gulpfile.js",
 	"type": "module",
-	"homepage": "https://github.com/excitexcite/PROJECT_NAME",
+	"homepage": "https://github.com/excitexcite/Womazing",
 	"scripts": {
 		"fonts": "gulp fonts",
 		"dev": "gulp",
