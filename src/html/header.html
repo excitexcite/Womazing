@@ -2,25 +2,79 @@
 	<div class="header__container">
 		<div class="header__logo-wrapper">
 			<a class="logo logo__link" href="">
-				<img class="logo__img" src="" alt="" />
+				<img class="logo__img" src="@img/logo_full.svg" alt="Womazing logo" />
 			</a>
 		</div>
 		<div class="header__menu menu">
+			<button
+				class="menu__togle menu-button"
+				aria-controls="mobile-navigation"
+				aria-hidden="false"
+			>
+				<span class="visually-hidden">Menu</span>
+				<span class="menu-button__icon" aria-hidden="true"></span>
+			</button>
 			<nav class="menu__body" aria-label="Mobile Navigation">
-				<button
-					class="menu__togle menu-button"
-					aria-controls="mobile-navigation"
-					aria-hidden="false"
-				>
-					<span class="visually-hidden">Menu</span>
-					<span class="menu-button__icon" aria-hidden="true"></span>
-				</button>
 				<ul class="menu__list">
 					<li class="menu__list-item">
-						<a class="menu__link" href=""></a>
+						<a
+							class="link header__menu-link menu__link menu__link--active"
+							href=""
+							>Главная</a
+						>
+					</li>
+					<li class="menu__list-item">
+						<a class="link header__menu-link menu__link" href="">Магазин</a>
+					</li>
+					<li class="menu__list-item">
+						<a class="link header__menu-link menu__link" href="">О бренде</a>
+					</li>
+					<li class="menu__list-item">
+						<a class="link header__menu-link menu__link" href="">Контакты</a>
 					</li>
 				</ul>
 			</nav>
+		</div>
+		<div class="header__col-actions">
+			<div class="header__tel">
+				<button class="header__tel-icon">
+					<svg
+						class="icon icon-tel"
+						width="32"
+						height="32"
+						viewBox="0 0 32 32"
+						aria-hidden="true"
+					>
+						<path
+							d="M4.24 9.066c-2.827 2.827-2.827 7.427-0 10.253l1.502-1.502c-1.999-1.999-1.999-5.251 0-7.25s5.251-1.999 7.25-0l1.502-1.502c-2.827-2.827-7.427-2.827-10.253-0z"
+						></path>
+						<path
+							d="M7.231 12.030c-1.19 1.19-1.19 3.126-0 4.316l1.502-1.502c-0.175-0.175-0.272-0.409-0.272-0.657s0.097-0.481 0.272-0.657 0.409-0.272 0.657-0.272c0.248 0 0.481 0.097 0.657 0.272l1.502-1.502c-1.19-1.19-3.126-1.19-4.316-0z"
+						></path>
+						<path
+							d="M25.879 8.348l-3.564-3.551-7.401 7.389 2.869 2.963c-0.481 0.854-1.524 2.489-3.302 4.267s-3.425 2.833-4.287 3.322l-2.905-2.868-7.285 7.242 3.544 3.568c1.355 1.355 3.416 1.706 5.13 0.874 2.615-1.27 6.56-3.613 10.511-7.564s6.294-7.897 7.564-10.511c0.301-0.62 0.447-1.284 0.447-1.945 0-1.167-0.456-2.32-1.321-3.185zM24.843 12.55c-1.199 2.468-3.413 6.195-7.155 9.937s-7.469 5.956-9.937 7.155c-0.9 0.437-1.985 0.25-2.698-0.463l-2.046-2.059 4.288-4.262 2.475 2.443 0.662-0.295c0.108-0.048 2.668-1.207 5.552-4.090 2.885-2.885 4.020-5.424 4.067-5.531l0.287-0.653-2.442-2.522 4.422-4.415 2.062 2.055c0.714 0.715 0.901 1.8 0.464 2.699z"
+						></path>
+					</svg>
+				</button>
+				<a class="link header__tel-number" href="tel:+44958235412"
+					>+4 (495) 823-54-12</a
+				>
+			</div>
+
+			<a class="header__shop-bag bag" href="#">
+				<svg class="icon icon-bag" width="32" height="32" viewBox="0 0 32 32">
+					<path
+						d="M31.794 10.966c-0.156-0.154-0.375-0.226-0.592-0.197h-8.489v-3.751c0-3.707-3.005-6.712-6.712-6.712s-6.712 3.005-6.712 6.712v3.751h-8.489c-0.237 0-0.474 0-0.592 0.197-0.159 0.153-0.233 0.374-0.197 0.592l2.961 16.189c0.414 2.258 2.364 3.911 4.659 3.948h16.741c2.302-0.057 4.248-1.722 4.659-3.988l2.961-16.149c0.036-0.218-0.038-0.439-0.197-0.592zM10.867 7.017c0-2.835 2.298-5.133 5.133-5.133s5.133 2.298 5.133 5.133v3.751h-10.266v-3.751zM27.451 27.51c-0.266 1.497-1.56 2.591-3.080 2.606h-16.741c-1.52-0.015-2.814-1.109-3.080-2.606l-2.803-15.162h28.508l-2.803 15.162z"
+					></path>
+					<path
+						d="M21.923 20.047c0.436 0 0.79-0.354 0.79-0.79v-2.369c0-0.436-0.353-0.79-0.79-0.79s-0.79 0.354-0.79 0.79v2.369c-0 0.436 0.353 0.79 0.79 0.79z"
+					></path>
+					<path
+						d="M10.077 20.047c0.436 0 0.79-0.354 0.79-0.79v-2.369c0-0.436-0.354-0.79-0.79-0.79s-0.79 0.354-0.79 0.79v2.369c0 0.436 0.354 0.79 0.79 0.79z"
+					></path>
+				</svg>
+				<span class="bag__item-count">3</span>
+			</a>
 		</div>
 	</div>
 </header>

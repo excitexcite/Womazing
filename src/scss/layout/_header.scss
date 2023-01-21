@@ -3,14 +3,27 @@
 @use "sass:math";
 
 .header {
-	background-color: red;
+	background-color: transparent;
 	position: fixed;
-	// position: sticky;
 	width: 100%;
 	z-index: 10;
 	top: 0;
 	left: 0;
-	box-shadow: 0 0px 20px rgb(194, 194, 194);
+	padding-block: rem(10);
+	transition: background-color $defaultTransition, box-shadow $defaultTransition;
+
+	@include mqm($tablet) {
+		padding-block: rem(15);
+	}
+
+	@include mqm(1024) {
+		padding-block: rem(31);
+	}
+
+	&--scrolled {
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+		background-color: var(--neutral100);
+	}
 }
 
 .menu-button {
@@ -22,9 +35,8 @@
 	min-width: rem(25);
 	height: rem(20);
 	background-color: transparent;
-	cursor: pointer;
 
-	@include mqm($pc) {
+	@include mqm($tablet) {
 		display: none;
 	}
 
@@ -35,7 +47,7 @@
 		height: rem(3);
 		width: 100%;
 		transition: all 300ms ease 0ms;
-		background-color: red;
+		background-color: var(--primary400);
 	}
 
 	&::after,
@@ -87,7 +99,7 @@
 		visibility: visible;
 	}
 
-	@include mqm($pc) {
+	@include mqm($tablet) {
 		background-color: transparent;
 		flex-direction: row;
 		position: revert;
@@ -97,4 +109,130 @@
 		overflow: hidden;
 		visibility: revert;
 	}
+}
+
+.header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: rem(10);
+}
+
+.header__menu {
+	order: 10;
+
+	@include mqm($tablet) {
+		order: revert;
+	}
+}
+
+.menu__list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: rem(20);
+	padding: rem(6);
+
+	@include mqm($tablet) {
+		flex-direction: row;
+	}
+
+	@include mqm($pc) {
+		gap: rem(45);
+	}
+}
+
+.menu__list-item {
+	display: flex;
+}
+
+.header__menu-link {
+	font-size: rem(22);
+
+	@include mqm($tablet) {
+		font-size: revert;
+	}
+}
+
+.menu__link {
+	line-height: math.div(21, 16);
+
+	&--active {
+		font-weight: 700;
+		color: var(--primary400);
+	}
+}
+
+.header__col-actions {
+	display: flex;
+	gap: rem(10);
+	margin-left: auto;
+	margin-right: rem(6);
+
+	@include mqm($tablet) {
+		margin: 0;
+	}
+
+	@include mqm($pc) {
+		gap: rem(65);
+	}
+}
+.header__tel {
+	display: flex;
+	align-items: center;
+	gap: rem(13);
+}
+
+.header__tel-icon {
+	height: rem(27);
+	width: rem(27);
+	transition: background-color $defaultTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--primary400);
+		}
+
+		&:hover .icon {
+			fill: var(--neutral100);
+		}
+	}
+}
+
+.header__tel-number {
+	font-size: rem(14);
+	display: none;
+
+	@include mqm($mobile-m) {
+		display: revert;
+	}
+
+	@include mqm($tablet) {
+		font-size: revert;
+	}
+}
+
+.bag {
+	position: relative;
+	line-height: 0;
+
+	@media (hover: hover) {
+		&:hover .icon {
+			fill: var(--primary400);
+		}
+	}
+}
+
+.bag__item-count {
+	position: absolute;
+	color: var(--neutral100);
+	background-color: var(--secondary500);
+	width: rem(16);
+	height: rem(16);
+	border-radius: 50%;
+	top: rem(-10);
+	right: rem(-10);
+	font-size: rem(10);
+	text-align: center;
+	line-height: 1.15;
 }

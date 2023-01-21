@@ -1,0 +1,93 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.cards-container {
+	display: grid;
+	gap: rem(15);
+
+	@include mqm(500) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include mqm($tablet) {
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: rem(30);
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	font-weight: 500;
+
+	@media (hover: hover) {
+		&:hover {
+			& .card__img-wrapper::before {
+				background-color: var(--card-hover);
+			}
+
+			& .card__arrow {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.card__img-wrapper {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: transparent;
+		transition: background-color $defaultTransition;
+	}
+}
+
+.card__text-content {
+	padding-inline: 10px;
+	text-align: center;
+}
+
+.card__title {
+	margin: rem(12) auto rem(7);
+	font-size: rem(20);
+	line-height: math.div(28, 16);
+
+	@include mqm($tablet) {
+		margin-top: rem(24);
+	}
+}
+
+.card__price-wrapper {
+	display: flex;
+	justify-content: center;
+	gap: rem(10);
+	font-size: rem(16);
+	line-height: math.div(21, 16);
+}
+
+.card__sale {
+	color: var(--neutral300);
+}
+
+.card__price {
+	color: var(--secondary500);
+}
+
+.card__arrow {
+	position: absolute;
+	height: rem(32);
+	width: rem(22);
+	stroke: var(--neutral100);
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, 50%) rotateZ(-90deg);
+	opacity: 0;
+	transition: opacity $defaultTransition;
+}

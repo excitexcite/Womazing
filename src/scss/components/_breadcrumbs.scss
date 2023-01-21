@@ -1,0 +1,47 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.breadcrumbs {
+}
+
+.breadcrumbs__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(13);
+}
+
+.breadcrumbs__list-item {
+	display: flex;
+	align-items: center;
+
+	&--last .breadcrumbs__line {
+		display: none;
+	}
+}
+
+.breadcrumbs__link {
+	font-weight: 500;
+	font-size: rem(17);
+	line-height: math.div(24, 16);
+	color: var(--neutral300);
+	transition: color $defaultTransition;
+
+	&--active {
+		color: var(--neutral500);
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--neutral500);
+		}
+	}
+}
+
+.breadcrumbs__line {
+	display: block;
+	margin-left: rem(13);
+	width: rem(14);
+	height: rem(1);
+	background-color: var(--neutral500);
+}

@@ -1,0 +1,20 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.page__collection {
+	text-align: center;
+}
+
+.collection__header {
+	text-align: left;
+}
+
+.collection__cta {
+	display: inline-block;
+	margin-top: rem(30);
+
+	@include mqm($tablet) {
+		margin-top: rem(65);
+	}
+}

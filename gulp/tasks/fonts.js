@@ -41,11 +41,13 @@ export const ttfToWoff = () => {
 export const fontsStyle = () => {
 	// files with fonts to include
 	let fontsFile = `${app.path.srcFolder}/scss/base/_fonts.scss`;
+	// console.log(fs.readdir(app.path.build.fonts));
 	fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
 		if (fontsFile) {
 			if (!fs.existsSync(fontsFile)) {
 				fs.writeFile(fontsFile, '', cb);
 				let newFileOnly;
+				if (fontsFiles.length === 0) return;
 				for (let i = 0; i < fontsFiles.length; i++) {
 					let fontFileName = fontsFiles[i].split('.')[0];
 					// console.log(`fontFileName = ${fontFileName}`);

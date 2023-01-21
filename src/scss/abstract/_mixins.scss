@@ -33,6 +33,8 @@
 	$minWidthStopShrink: $minWidth
 ) {
 	$addSize: $maxSize - $minSize;
+	/// option works if size < $maxWidthStopGrowth
+	/// when reach $minWidthStopShrink fallback for $minSize
 	@if $type == 1 {
 		#{$property}: $maxSize + px;
 		@media screen and (max-width: #{$maxWidthStopGrowth + px}) {
@@ -44,8 +46,14 @@
 					)
 			);
 		}
-	} @else if $type == 2 {
-		#{$property}: $maxSize + px;
+		@media screen and (max-width: #{$minWidthStopShrink + px} ) {
+			#{$property}: $minSize + px;
+		}
+	}
+	/// option works if size > $maxWidthStopGrowth
+	/// before reach $minWidthStopShrink fallback for $minSize
+	@else if $type == 2 {
+		#{$property}: $minSize + px;
 		@media screen and (min-width: #{$maxWidthStopGrowth + px}) {
 			#{$property}: calc(
 				#{$minSize + px} + #{$addSize} *
@@ -89,6 +97,8 @@
 		$minSize: stripUnits($minSize);
 	}
 	$addSize: $maxSize - $minSize;
+	/// option works if size < $maxWidthStopGrowth
+	/// when reach $minWidthStopShrink fallback for $minSize
 	@if $type == 1 {
 		#{$property}: $maxSize;
 
@@ -101,6 +111,9 @@
 							)}
 					)
 			);
+		}
+		@media screen and (max-width: em($minWidthStopShrink)) {
+			#{$property}: $minSize;
 		}
 	} @else if $type == 2 {
 		#{$property}: $maxSize;

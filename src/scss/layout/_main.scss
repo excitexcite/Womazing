@@ -1,3 +1,178 @@
 @use "abstract" as *;
 @use "base" as *;
 @use "sass:math";
+
+.page__hero {
+}
+.hero {
+	@include mqm($pc) {
+		background: linear-gradient(to left, var(--secondary300) 43.5%, #fff 0%);
+		min-height: rem(826);
+	}
+}
+
+.hero__container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding-top: rem(60);
+	min-width: 0;
+	justify-content: space-between;
+	gap: rem(32);
+
+	@include mqm($tablet) {
+		padding-top: rem(100);
+		flex-direction: row;
+	}
+
+	@include mqm(1024) {
+		padding-top: rem(120);
+	}
+}
+.hero__text-col {
+	margin-top: rem(20);
+
+	@include mqm(1024) {
+		margin-top: rem(145);
+	}
+}
+
+.hero__slider {
+	margin-left: 0;
+
+	@include mqm($tablet) {
+		max-width: rem(400);
+	}
+
+	@include mqm(1024) {
+		max-width: rem(555);
+	}
+
+	& > * {
+		box-sizing: border-box;
+	}
+}
+
+.hero__title {
+	font-weight: 500;
+	font-size: rem(32);
+	margin-bottom: rem(32);
+
+	@include mqm($tablet) {
+		margin-bottom: rem(45);
+		font-size: rem(55);
+	}
+}
+
+.hero__text {
+	margin-bottom: rem(36);
+	font-size: rem(16);
+	line-height: math.div(28, 16);
+	text-align: right;
+
+	@include mqm($tablet) {
+		margin-bottom: rem(52);
+		font-size: rem(20);
+		max-width: rem(385);
+	}
+}
+
+.hero__cta-container {
+	display: inline-flex;
+	float: right;
+	@include mqm($tablet) {
+		margin-left: rem(75);
+		float: revert;
+	}
+}
+
+.hero__link-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: rem(67);
+	background-color: var(--primary100);
+	transition: background-color $buttonTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--primary200);
+		}
+	}
+}
+
+.hero__arrow {
+	stroke: var(--primary400);
+}
+
+.hero__link-cta {
+	display: inline-block;
+	font-size: rem(17);
+	line-height: math.div(23, 16);
+}
+
+.img-col {
+	position: relative;
+
+	@include mqm($tablet) {
+		max-width: rem(410);
+		max-height: rem(646);
+	}
+}
+
+.img-col__secondary {
+	position: absolute;
+	display: none;
+
+	&:nth-child(2) {
+		@include mqm(1160) {
+			display: block;
+			right: 0;
+			bottom: rem(-60);
+		}
+
+		@include mqm(1320) {
+			width: rem(197);
+			height: rem(197);
+			top: rem(123);
+			right: rem(-100);
+		}
+	}
+
+	&:nth-child(3) {
+		@include mqm(1160) {
+			display: block;
+			right: 0;
+			bottom: rem(-60);
+		}
+
+		width: rem(190);
+		height: rem(318);
+		bottom: rem(-60);
+		left: rem(-130);
+	}
+}
+
+.hero__slider-pagination {
+	position: static;
+	margin-top: rem(20);
+
+	& .swiper-pagination-bullet {
+		background-color: var(--secondary400) !important;
+	}
+
+	& .swiper-pagination-bullet-active {
+		background-color: var(--neutral500) !important;
+	}
+
+	@include mqm(1024) {
+		margin-top: rem(126);
+	}
+}
+
+.swiper-pagination-bullet {
+	width: rem(30);
+	height: rem(4);
+	margin-inline: rem(6);
+	border-radius: 0;
+}

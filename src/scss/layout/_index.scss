@@ -1,6 +1,10 @@
 @forward "header";
 @forward "footer";
 @forward "main";
+@forward "collection";
+@forward "important";
+@forward "team";
+@forward "shop";
 
 @use "abstract" as *;
 @use "base" as *;

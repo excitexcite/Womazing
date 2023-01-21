@@ -1,3 +1,148 @@
 @use "../abstract" as *;
 @use "../base" as *;
 @use "sass:math";
+
+.header-lg {
+	@include adaptive-font(28, 40);
+	margin-bottom: rem(45);
+
+	@include mqm($tablet) {
+		margin-bottom: rem(92);
+	}
+}
+
+.header-m {
+	@include adaptive-font(20, 25);
+}
+
+.button-icon {
+	line-height: 0;
+}
+
+.button {
+	cursor: pointer;
+	padding: rem(18) rem(40);
+
+	&:focus-visible {
+		// outline: 3px solid var(--neutral500);
+		// outline-offset: 3px;
+	}
+
+	@include mqm(375) {
+		padding: rem(22) rem(50);
+	}
+}
+
+.button-primary {
+	color: var(--neutral100);
+	background-color: var(--primary400);
+	transition: color $buttonTransition, background-color $buttonTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--primary500);
+		}
+	}
+}
+
+.button-primary-outlined {
+	color: var(--primary400);
+	background-color: transparent;
+	border: 1px solid var(--primary400);
+	transition: color $buttonTransition, background-color $buttonTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--primary400);
+			color: var(--neutral100);
+		}
+	}
+}
+
+.button-neutral-outlined {
+	color: var(--neutral500);
+	background-color: transparent;
+	border: 1px solid var(--neutral500);
+	transition: color $buttonTransition, background-color $buttonTransition;
+	padding: rem(19) rem(65);
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--neutral500);
+			color: var(--neutral100);
+		}
+	}
+
+	&--active {
+		background-color: var(--neutral500);
+		color: var(--neutral100);
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--primary400);
+		outline-offset: 3px;
+	}
+}
+
+.info-label {
+	color: var(--neutral500);
+	background-color: var(--secondary300);
+}
+
+.text-input {
+	min-height: rem(20);
+	border: 0;
+	border-bottom: 1px solid var(--neutral500);
+	width: 100%;
+
+	&::placeholder {
+		color: var(--input-placeholder-clr);
+	}
+
+	@include mqm($tablet) {
+		min-height: rem(40);
+	}
+}
+
+.link {
+	cursor: pointer;
+	transition: color $defaultTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--primary400);
+		}
+	}
+	// &:focus-visible {
+	// 	outline: 3px solid var(--neutral500);
+	// 	// outline-offset: 3px;
+	// }
+}
+
+.link-text {
+	position: relative;
+	color: var(--primary400);
+	width: fit-content;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: rem(1);
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: var(--neutral500);
+		transform: scaleX(0);
+		transition: transform $defaultTransition;
+	}
+
+	@media (hover: hover) {
+		&:hover::before {
+			transform: scaleX(1);
+		}
+	}
+}
+
+.section {
+	margin-top: rem(130);
+}

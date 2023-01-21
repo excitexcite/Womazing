@@ -7,57 +7,42 @@ html {
 	box-sizing: border-box;
 	height: 100%;
 	scroll-behavior: smooth;
-	// scroll-padding-top: var(--scroll-padding, rem(106));
+	scroll-padding-top: var(--scroll-padding, rem(95));
 }
 
 :root {
-	--section-spacing: rem(100);
-	--block-spacing: rem(16);
+	--primary500: #509498;
+	--primary400: #6e9c9f;
+	--primary200: #{rgba(#6e9c9f, 0.2)};
+	--primary100: #{rgba(#6e9c9f, 0.1)};
 
-	--primary500: #5952d1;
-	--primary400: #6c63ff;
-	--primary300: #9e99ff;
-	--primary200: #c5c2ff;
-	--primary100: #ecebff;
-	--secondary500: #fc4a6e;
-	--secondary400: #fd6584;
-	--secondary300: #fd9bae;
-	--secondary200: #fed7df;
-	--secondary100: #feebef;
-	--neutral500: #2f2e41;
-	--neutral400: #717082;
-	--neutral300: #9893a3;
-	--neutral200: #cfcfde;
+	--secondary500: #998e78;
+	--secondary400: #d1d1d1;
+	--secondary300: #f1eadc;
+
+	--neutral500: #000;
+	--neutral400: #9c9c9c;
+	--neutral300: #909090;
+	--neutral250: #868686;
+	--neutral200: #808080;
 	--neutral100: #ffffff;
 
 	--bg-color: var(--neutral100);
-	--box-shadow-common: 0 0px 20px rgb(194, 194, 194);
-}
+	// --bg-color: #e5e5e5;
+	--footer-bg: var(--secondary300);
+	// --box-shadow-common: 0 0px 20px rgb(194, 194, 194);
 
-:root.dark-theme {
-	--bg-color: #12111a;
-	--box-shadow-common: 0 0px 20px rgb(50, 50, 50);
+	--text-color: var(--neutral500);
+	--link-color: var(--primary400);
+	--button-color: var(--primary400);
+	--sale-color: var(--neutral400);
+	--price-color: var(--secondary500);
+	--card-hover: #{rgba(#6e9c9f, 0.65)};
+	// --button-hover: var(--primary500);
+	--popup-overlay: #{rgba(#6e9c9f, 0.95)};
+	--input-placeholder-clr: var(--neutral250);
 
-	.img-dark {
-		filter: brightness(0.8) contrast(1.2);
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	/* defaults to dark theme */
-	:root {
-		--bg-color: #12111a;
-		--box-shadow-common: 0 0px 20px rgb(70, 70, 70);
-
-		.img-dark {
-			filter: brightness(0.8) contrast(1.2);
-		}
-	}
-
-	:root.light-theme {
-		--box-shadow-common: 0 0px 20px rgb(194, 194, 194);
-		--bg-color: var(--neutral100);
-	}
+	--heaader-size: #{rem(55)};
 }
 
 *,
@@ -70,10 +55,11 @@ html {
 body {
 	margin: 0;
 	height: 100%;
-	font-family: Inter, sans-serif;
+	font-family: Raleway, sans-serif;
 	font-weight: 400;
 	font-size: rem($baseFontSize);
 	line-height: math.div(16, 16);
+	background-color: var(--bg-color);
 }
 
 body.scroll-lock {
@@ -98,6 +84,13 @@ ul {
 a {
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
+
+	&:focus-visible {
+		// outline: 3px solid $clr-black;
+		outline: 3px solid var(--neutral500);
+		// outline-offset: 3px;
+	}
 }
 
 p {
@@ -123,20 +116,24 @@ textarea {
 }
 
 button {
-	background-color: red;
+	background-color: transparent;
 	padding: 0;
 	border-width: 0;
 	font-family: inherit;
 	outline: none;
+	// line-height: 0;
+	line-height: 1;
+	cursor: pointer;
 
 	// &:focus {
 	// 	outline: none;
 	// }
 
-	// &:focus-visible {
-	// 	outline: 3px solid $clr-black;
-	// 	outline-offset: 3px;
-	// }
+	&:focus-visible {
+		// outline: 3px solid $clr-black;
+		outline: 3px solid var(--neutral500);
+		// outline-offset: 3px;
+	}
 
 	// &:active {
 	// 	outline: 3px solid $clr-black;
@@ -156,16 +153,15 @@ fieldset {
 
 input,
 textarea {
-	border: 1px solid red;
+	// border: 1px solid red;
 	background-color: white;
-	border-radius: 6px;
 }
 
 select:focus-visible,
 textarea:focus-visible,
 input:focus-visible {
 	outline: none;
-	border-color: $primary;
+	// border-color: $primary;
 }
 
 hr {
@@ -196,10 +192,7 @@ s::after {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	// overflow-x: hidden;
 	min-height: 100%;
-	/// need for position:sticky in header or remove overflow
-	/// height: 100%;
 }
 
 .page {
@@ -207,11 +200,18 @@ s::after {
 }
 
 [class*="__container"] {
-	max-width: em($maxWidthContainer);
+	max-width: em($maxWidthContainer + 40);
 	margin-inline: auto;
 	padding-inline: 10px;
 
 	@include mqm($mobile) {
 		padding-inline: 20px;
 	}
+}
+
+.img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

@@ -9,12 +9,55 @@
 	stroke-width: 0;
 	stroke: currentColor;
 	fill: currentColor;
+	transition: fill $defaultTransition, stroke $defaultTransition;
+}
+
+.icon-bag {
+	height: rem(24);
+	width: rem(24);
 }
 
 .icon-check {
 	width: 0.857421875em;
 }
 
+.icon-facebook,
+.icon-twitter,
 .icon-instagram {
-	width: 0.9560546875em;
+	width: rem(21);
+	height: rem(21);
+}
+
+.icon-arrow {
+	width: rem(14);
+	height: rem(28);
+
+	&--right {
+		transform: rotateZ(-90deg);
+	}
+
+	&--left {
+		transform: rotateZ(90deg);
+	}
+
+	&--up {
+		transform: rotateZ(180deg);
+	}
+
+	&--down {
+	}
+}
+
+.icon-tel {
+	fill: var(--primary400);
+}
+
+.icon-close {
+	width: rem(15);
+	height: rem(15);
+}
+
+.icon-line {
+	width: rem(14);
+	height: rem(1);
 }
