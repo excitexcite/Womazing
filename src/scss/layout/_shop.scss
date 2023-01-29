@@ -27,9 +27,6 @@
 	}
 }
 
-.page-heading__breadcrumbs {
-}
-
 .shop__filter {
 	@include adaptive-value("margin-bottom", 32, 90, 1, $tablet, $mobile);
 }

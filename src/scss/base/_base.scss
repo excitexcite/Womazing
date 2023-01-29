@@ -41,6 +41,7 @@ html {
 	// --button-hover: var(--primary500);
 	--popup-overlay: #{rgba(#6e9c9f, 0.95)};
 	--input-placeholder-clr: var(--neutral250);
+	--input-about-quantity-clr: #afafaf;
 
 	--heaader-size: #{rem(55)};
 }
@@ -155,6 +156,7 @@ input,
 textarea {
 	// border: 1px solid red;
 	background-color: white;
+	padding: 0;
 }
 
 select:focus-visible,
@@ -187,6 +189,15 @@ s::after {
 	content: " [end of stricken text] ";
 }
 
+th,
+td {
+	padding: 0;
+}
+
+th {
+	text-align: left;
+}
+
 .wrapper {
 	position: relative;
 	display: flex;
@@ -200,7 +211,7 @@ s::after {
 }
 
 [class*="__container"] {
-	max-width: em($maxWidthContainer + 40);
+	max-width: rem($maxWidthContainer + 40);
 	margin-inline: auto;
 	padding-inline: 10px;
 

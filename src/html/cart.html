@@ -1,0 +1,179 @@
+<section class="page__heading page-heading">
+	<div class="page-heading__container">
+		<h1 class="page-heading__header">Корзина</h1>
+		<div class="page-heading__breadcrumbs breadcrumbs">
+			<ul class="breadcrumbs__list">
+				<li class="breadcrumbs__list-item">
+					<a class="link-text breadcrumbs__link" href="index.html">Главная</a>
+					<span class="breadcrumbs__line"></span>
+				</li>
+				<li class="breadcrumbs__list-item breadcrumbs__list-item--last">
+					<a
+						class="link-text breadcrumbs__link breadcrumbs__link--active"
+						href="shop.html"
+						>Корзина</a
+					>
+					<span class="breadcrumbs__line"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="cart page__cart">
+	<div class="cart__container">
+		<form class="cart__form" action="">
+			<div class="cart__table-wrapper">
+				<table class="cart__table table-cart">
+					<thead class="table-cart__header">
+						<tr>
+							<th class="table-cart__col1">Товар</th>
+							<th class="table-cart__col">Цена</th>
+							<th class="table-cart__col">Количество</th>
+							<th class="table-cart__col">Всего</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="table-cart__col1">
+								<div class="table-cart__col1-content-wrapper">
+									<button class="button-icon">
+										<svg class="icon icon-close__table">
+											<use xlink:href="@img/symbol-defs.svg#icon-close"></use>
+										</svg>
+									</button>
+									<a class="table-cart__col1-content" href="goods-details.html">
+										<div class="table-cart__img-wrapper">
+											<img
+												class="img table-cart__img"
+												src="@img/good1.jpg"
+												alt=""
+											/>
+										</div>
+										Футболка USA
+									</a>
+								</div>
+							</td>
+							<td class="table-cart__col">$129</td>
+							<td class="table-cart__col">
+								<input
+									class="text-input-numbers table-cart__quantity-input"
+									type="text"
+									value="1"
+								/>
+							</td>
+							<td class="table-cart__col">$129</td>
+						</tr>
+						<tr>
+							<td class="table-cart__col1">
+								<div class="table-cart__col1-content-wrapper">
+									<button class="button-icon">
+										<svg class="icon icon-close__table">
+											<use xlink:href="@img/symbol-defs.svg#icon-close"></use>
+										</svg>
+									</button>
+									<a class="table-cart__col1-content" href="goods-details.html">
+										<div class="table-cart__img-wrapper">
+											<img
+												class="img table-cart__img"
+												src="@img/good2.jpg"
+												alt=""
+											/>
+										</div>
+										Футболка USA
+									</a>
+								</div>
+							</td>
+							<td class="table-cart__col">$129</td>
+							<td class="table-cart__col">
+								<input
+									class="text-input-numbers table-cart__quantity-input"
+									type="text"
+									value="1"
+								/>
+							</td>
+							<td class="table-cart__col">$129</td>
+						</tr>
+						<tr>
+							<td class="table-cart__col1">
+								<div class="table-cart__col1-content-wrapper">
+									<button class="button-icon">
+										<svg class="icon icon-close__table">
+											<use xlink:href="@img/symbol-defs.svg#icon-close"></use>
+										</svg>
+									</button>
+									<a class="table-cart__col1-content" href="goods-details.html">
+										<div class="table-cart__img-wrapper">
+											<img
+												class="img table-cart__img"
+												src="@img/good3.jpg"
+												alt=""
+											/>
+										</div>
+										Футболка USA
+									</a>
+								</div>
+							</td>
+							<td class="table-cart__col">$129</td>
+							<td class="table-cart__col">
+								<input
+									class="text-input-numbers table-cart__quantity-input"
+									type="text"
+									value="1"
+								/>
+							</td>
+							<td class="table-cart__col">$129</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="cart__actions">
+					<div class="cart__promo">
+						<div class="cart__promo-input-wrapper">
+							<input
+								class="text-input cart__promo-input"
+								type="text"
+								placeholder="Введите купон"
+							/>
+						</div>
+						<a
+							class="button button-primary-outlined cart__promo-submit"
+							href="#"
+						>
+							Применить купон
+						</a>
+					</div>
+					<a
+						class="button button-primary-outlined cart__refresh-cart-items"
+						href="#"
+					>
+						Обновить корзину
+					</a>
+				</div>
+			</div>
+
+			<div class="cart__summary">
+				<ul class="cart__list">
+					<li class="cart____list-item">
+						Подытог: <span class="cart__list-item-price">$129</span>
+					</li>
+					<li class="cart____list-item">
+						Подытог: <span class="cart__list-item-price">$129</span>
+					</li>
+					<li class="cart____list-item">
+						Подытог: <span class="cart__list-item-price">$129</span>
+					</li>
+					<li class="cart____list-item cart____list-item--last">
+						Итого:
+						<span class="cart__list-item-price cart__list-item-price--last"
+							>$129</span
+						>
+					</li>
+				</ul>
+				<button class="button button-primary cart__submit">
+					Оформить заказ
+				</button>
+			</div>
+		</form>
+	</div>
+</section>

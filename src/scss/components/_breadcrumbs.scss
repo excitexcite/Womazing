@@ -24,11 +24,11 @@
 	font-weight: 500;
 	font-size: rem(17);
 	line-height: math.div(24, 16);
-	color: var(--neutral300);
 	transition: color $defaultTransition;
+	color: var(--neutral500);
 
 	&--active {
-		color: var(--neutral500);
+		color: var(--neutral300);
 	}
 
 	@media (hover: hover) {

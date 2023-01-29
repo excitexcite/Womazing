@@ -1,0 +1,159 @@
+@use "abstract" as *;
+@use "base" as *;
+@use "sass:math";
+
+.cart__table-wrapper {
+	overflow-x: scroll;
+
+	@include mqm($tablet) {
+		overflow: auto;
+	}
+}
+
+.table-cart {
+	width: 100%;
+	font-weight: 500;
+	font-size: rem(17);
+	line-height: math.div(24, 16);
+	border-collapse: collapse;
+
+	& tbody tr td {
+		padding-block: rem(24);
+
+		@include mqm($tablet) {
+			padding-block: rem(50);
+		}
+	}
+}
+
+.table-cart__header {
+	font-size: rem(20);
+
+	& tr th {
+		font-weight: inherit;
+		padding-bottom: rem(26);
+		border-bottom: 1px solid var(--neutral400);
+	}
+}
+
+.table-cart__col1-content-wrapper {
+	display: flex;
+	align-items: center;
+	@include adaptive-value("column-gap", 12, 45, 1, $maxWidthContainer, $tablet);
+}
+
+.table-cart__col1 {
+	width: 43%;
+	min-width: rem(190);
+}
+
+.table-cart__col {
+	width: 19%;
+	min-width: rem(140);
+}
+
+.table-cart__col1-content {
+	display: flex;
+	flex-direction: column;
+
+	@include adaptive-value("column-gap", 12, 36, 1, $maxWidthContainer, $tablet);
+	row-gap: rem(12);
+	align-items: center;
+
+	@include mqm($tablet) {
+		flex-direction: row;
+	}
+}
+
+.icon-close__table {
+	stroke-width: 1px;
+	width: rem(12);
+	height: rem(12);
+}
+
+.table-cart__img-wrapper {
+	width: rem(125);
+	height: rem(180);
+}
+
+.table-cart__quantity-input {
+	width: rem(47);
+	height: rem(47);
+}
+
+.cart__actions {
+	display: flex;
+	gap: rem(16);
+	justify-content: space-between;
+	margin-top: rem(20);
+	margin-bottom: rem(10);
+}
+
+.cart__promo {
+	display: flex;
+	gap: rem(16);
+}
+
+.cart__promo-input-wrapper {
+	min-width: rem(125);
+	align-self: flex-end;
+
+	@include mqm(900) {
+		min-width: rem(255);
+	}
+}
+
+.cart__refresh-cart-items,
+.cart__promo-submit {
+	display: inline-block;
+	white-space: nowrap;
+	padding: rem(18) rem(40);
+
+	@include mqm(900) {
+		padding: rem(22) rem(50);
+	}
+}
+
+.cart__summary {
+	display: flex;
+	// flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: rem(16);
+	margin-top: rem(65);
+
+	@include mqm($tablet) {
+		flex-direction: row;
+	}
+}
+
+.cart__list {
+	display: flex;
+	flex-direction: column;
+	gap: rem(12);
+	font-weight: 500;
+	font-size: rem(17);
+	line-height: math.div(24, 16);
+}
+
+.cart____list-item {
+	&--last {
+		margin-top: rem(16);
+		background-color: var(--secondary300);
+		line-height: 1;
+		padding: rem(18) rem(40);
+		font-size: rem(25);
+	}
+}
+
+.cart__list-item-price {
+	margin-left: rem(20);
+
+	&--last {
+		margin-left: rem(70);
+	}
+}
+
+.cart__submit {
+	align-self: flex-end;
+}

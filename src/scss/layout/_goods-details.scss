@@ -1,0 +1,169 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.shop__heading {
+	margin-top: rem(190);
+	margin-bottom: rem(100);
+}
+
+.about__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: rem(30);
+
+	@include mqm(600) {
+		flex-direction: row;
+	}
+
+	@include mqm(1024) {
+		gap: rem(74);
+	}
+}
+
+.about__image-wrapper {
+	width: 100%;
+
+	@include mqm(600) {
+		height: auto;
+		@include adaptive-value("width", 350, 536, 1, 1024, $tablet);
+	}
+}
+
+.about__right {
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	font-weight: 500;
+	gap: rem(16);
+
+	@include mqm(600) {
+		align-self: revert;
+	}
+
+	@include mqm($pc) {
+		gap: rem(60);
+	}
+}
+
+.about__price-wrapper {
+	display: flex;
+	align-items: center;
+	gap: rem(30);
+}
+
+.about__price {
+	font-size: rem(24);
+	color: var(--secondary500);
+
+	@include mqm($tablet) {
+		font-size: rem(40);
+	}
+}
+
+.detail__sale {
+	color: var(--neutral400);
+	font-size: rem(20);
+
+	@include mqm($tablet) {
+		font-size: rem(30);
+	}
+}
+
+.about__option-title {
+	font-size: rem(16);
+	margin-bottom: rem(16);
+
+	@include mqm($tablet) {
+		margin-bottom: rem(34);
+		font-size: rem(20);
+	}
+}
+
+.about__option-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(14);
+}
+
+.about__option-item {
+	display: flex;
+	min-height: rem(41);
+	min-width: rem(41);
+}
+
+.about__size-link {
+	font-size: rem(17);
+	padding: rem(11) rem(15);
+}
+
+.about__color-link {
+	display: inline-block;
+	border-radius: 50%;
+	padding: rem(12) rem(16.5);
+	width: 100%;
+	transition: border-color $defaultTransition;
+	border: 1px solid transparent;
+
+	&--active {
+		border-color: var(--neutral500);
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			border-color: var(--neutral500);
+		}
+	}
+}
+
+.about__color1 {
+	background-color: #927876;
+}
+
+.about__color2 {
+	background-color: #d4d4d4;
+}
+
+.about__color3 {
+	background-color: #fd9696;
+}
+
+.about__color4 {
+	background-color: #fdc796;
+}
+
+.about__action-inputs {
+	display: flex;
+	gap: rem(12);
+
+	@include mqm(600) {
+		flex-direction: column;
+	}
+
+	@include mqm($tablet) {
+		flex-direction: row;
+	}
+}
+
+.about__quantity {
+	min-width: rem(41);
+	min-height: rem(41);
+	max-width: rem(41);
+
+	@include mqm($tablet) {
+		max-width: rem(68);
+	}
+}
+
+.about__add-button {
+	padding: rem(18) rem(40);
+
+	@include mqm($tablet) {
+		padding: rem(26) rem(50);
+	}
+}
+
+.page__similar {
+	margin-bottom: rem(67);
+}

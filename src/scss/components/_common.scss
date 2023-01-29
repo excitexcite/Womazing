@@ -2,6 +2,14 @@
 @use "../base" as *;
 @use "sass:math";
 
+.flex-row-reverse {
+	flex-direction: row-reverse !important;
+}
+
+.flex-col-reverse {
+	flex-direction: column-reverse !important;
+}
+
 .header-lg {
 	@include adaptive-font(28, 40);
 	margin-bottom: rem(45);
@@ -16,6 +24,7 @@
 }
 
 .button-icon {
+	cursor: pointer;
 	line-height: 0;
 }
 
@@ -90,7 +99,7 @@
 }
 
 .text-input {
-	min-height: rem(20);
+	min-height: rem(28);
 	border: 0;
 	border-bottom: 1px solid var(--neutral500);
 	width: 100%;
@@ -101,6 +110,41 @@
 
 	@include mqm($tablet) {
 		min-height: rem(40);
+	}
+}
+
+.text-input-numbers {
+	border: 1px solid var(--input-about-quantity-clr);
+	font-size: rem(20);
+	text-align: center;
+}
+
+.radio-button {
+	width: rem(22);
+	height: rem(22);
+	border: 1px solid var(--neutral500);
+	vertical-align: middle;
+	order: -1;
+	cursor: pointer;
+
+	&::before {
+		display: block;
+		content: "";
+		width: rem(10);
+		height: rem(10);
+		background-color: var(--neutral500);
+		transform-origin: center;
+		transform: translate(50%, 50%) scale(0);
+		// transform: scale(0);
+		transition: transform $defaultTransition, scale $defaultTransition;
+	}
+
+	&:checked::before {
+		transform: translate(50%, 50%) scale(1);
+	}
+
+	&:focus {
+		outline: none;
 	}
 }
 

@@ -2,8 +2,6 @@
 @use "base" as *;
 @use "sass:math";
 
-.page__hero {
-}
 .hero {
 	@include mqm($pc) {
 		background: linear-gradient(to left, var(--secondary300) 43.5%, #fff 0%);
