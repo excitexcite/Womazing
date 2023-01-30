@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="header__container">
 		<div class="header__logo-wrapper">
-			<a class="logo logo__link" href="">
+			<a class="logo logo__link" href="index.html">
 				<img class="logo__img" src="@img/logo_full.svg" alt="Womazing logo" />
 			</a>
 		</div>
@@ -43,7 +43,11 @@
 		</div>
 		<div class="header__col-actions">
 			<div class="header__tel">
-				<button class="button-icon header__tel-icon">
+				<button
+					class="button-icon header__tel-icon"
+					data-a11y-dialog-show="call-back-popup"
+					id="popup-button-callback"
+				>
 					<svg class="icon icon-phone">
 						<use xlink:href="@img/symbol-defs.svg#icon-phone"></use>
 					</svg>

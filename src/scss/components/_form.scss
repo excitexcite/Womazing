@@ -28,18 +28,29 @@
 }
 
 .form__inputs-item {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	gap: rem(14);
 	max-width: 290px;
+	width: 100%;
 
 	@include mqm($tablet) {
 		max-width: 350px;
 	}
 }
 
+.form__label {
+	cursor: pointer;
+}
+
+.form__input-radio {
+	&:focus-visible ~ .form__label {
+		outline: 3px solid var(--neutral500);
+	}
+}
+
 .form__textarea {
-	min-height: rem(135);
+	min-height: rem(135) !important;
 	max-height: rem(250);
 	width: 100%;
 	resize: vertical;

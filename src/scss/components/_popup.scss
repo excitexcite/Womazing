@@ -2,35 +2,51 @@
 @use "../base" as *;
 @use "sass:math";
 
-.popup {
-	position: absolute;
+.popup,
+.popup__overlay {
+	position: fixed;
 	top: 0;
+	right: 0;
+	bottom: 0;
 	left: 0;
-	width: 100%;
-	height: 100vh;
+}
+
+.popup {
+	z-index: 10;
+	display: flex;
+	overflow-y: auto;
+}
+
+.popup[aria-hidden="true"] {
+	display: none;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes slide-up {
+	from {
+		transform: translateY(10%);
+	}
+}
+
+.popup__overlay {
 	background-color: var(--popup-overlay);
-	pointer-events: none;
-	z-index: 20;
+	animation: fade-in 250ms both;
 }
 
-.popup__wrapper {
-	// position: relative;
-}
-
-.popup__form {
-	gap: rem(35);
-
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	// width: max(80%, calc(100% - 100px));
-	width: 80%;
-	max-width: rem(400);
-	// height: rem(500);
-	padding: 40px 20px;
+.popup__content {
+	margin: auto;
+	z-index: 10;
+	position: relative;
 	background-color: var(--neutral100);
-	z-index: 20;
+	width: 90%;
+	max-width: rem(400);
+	padding: 40px 20px;
+	animation: fade-in 500ms 250ms both, slide-up 500ms 250ms both;
 
 	@include mqm($tablet) {
 		max-width: revert;
@@ -39,18 +55,23 @@
 	}
 }
 
-// .form {
-// 	display: flex;
-// 	flex-direction: column;
-// 	// align-items: center;
-// }
+.popup__form {
+	gap: rem(35);
+}
 
 .popup__close {
+	position: absolute;
+	top: rem(16);
+	right: rem(16);
+
+	@include mqm($tablet) {
+		top: rem(32);
+		right: rem(32);
+	}
 }
 
 .popup__title {
 	font-weight: 500;
-	// font-size: rem(25);
 	@include adaptive-font(16, 25);
 	line-height: math.div(24, 16);
 	text-align: center;
@@ -60,12 +81,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: rem(35);
-}
-
-.popup__input-item {
-}
-
-.popup__input {
 }
 
 .popup__button {

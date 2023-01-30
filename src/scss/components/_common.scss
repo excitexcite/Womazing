@@ -2,14 +2,6 @@
 @use "../base" as *;
 @use "sass:math";
 
-.flex-row-reverse {
-	flex-direction: row-reverse !important;
-}
-
-.flex-col-reverse {
-	flex-direction: column-reverse !important;
-}
-
 .header-lg {
 	@include adaptive-font(28, 40);
 	margin-bottom: rem(45);
@@ -31,11 +23,6 @@
 .button {
 	cursor: pointer;
 	padding: rem(18) rem(40);
-
-	&:focus-visible {
-		// outline: 3px solid var(--neutral500);
-		// outline-offset: 3px;
-	}
 
 	@include mqm(375) {
 		padding: rem(22) rem(50);
@@ -135,7 +122,6 @@
 		background-color: var(--neutral500);
 		transform-origin: center;
 		transform: translate(50%, 50%) scale(0);
-		// transform: scale(0);
 		transition: transform $defaultTransition, scale $defaultTransition;
 	}
 
@@ -157,10 +143,6 @@
 			color: var(--primary400);
 		}
 	}
-	// &:focus-visible {
-	// 	outline: 3px solid var(--neutral500);
-	// 	// outline-offset: 3px;
-	// }
 }
 
 .link-text {
@@ -189,4 +171,8 @@
 
 .section {
 	margin-top: rem(130);
+}
+
+.logo {
+	display: inline-block;
 }

@@ -28,9 +28,8 @@ html {
 	--neutral100: #ffffff;
 
 	--bg-color: var(--neutral100);
-	// --bg-color: #e5e5e5;
 	--footer-bg: var(--secondary300);
-	// --box-shadow-common: 0 0px 20px rgb(194, 194, 194);
+	--box-shadow-common: 0 4px 15px rgba(0, 0, 0, 0.05);
 
 	--text-color: var(--neutral500);
 	--link-color: var(--primary400);
@@ -38,7 +37,6 @@ html {
 	--sale-color: var(--neutral400);
 	--price-color: var(--secondary500);
 	--card-hover: #{rgba(#6e9c9f, 0.65)};
-	// --button-hover: var(--primary500);
 	--popup-overlay: #{rgba(#6e9c9f, 0.95)};
 	--input-placeholder-clr: var(--neutral250);
 	--input-about-quantity-clr: #afafaf;
@@ -50,7 +48,6 @@ html {
 *::before,
 *::after {
 	box-sizing: inherit;
-	// transition: $themeColorTransition;
 }
 
 body {
@@ -88,9 +85,7 @@ a {
 	cursor: pointer;
 
 	&:focus-visible {
-		// outline: 3px solid $clr-black;
 		outline: 3px solid var(--neutral500);
-		// outline-offset: 3px;
 	}
 }
 
@@ -116,30 +111,21 @@ textarea {
 	}
 }
 
-button {
+button,
+[type="button"]:focus-visible,
+[type="reset"]:focus-visible,
+[type="submit"]:focus-visible {
 	background-color: transparent;
 	padding: 0;
 	border-width: 0;
 	font-family: inherit;
 	outline: none;
-	// line-height: 0;
 	line-height: 1;
 	cursor: pointer;
 
-	// &:focus {
-	// 	outline: none;
-	// }
-
 	&:focus-visible {
-		// outline: 3px solid $clr-black;
 		outline: 3px solid var(--neutral500);
-		// outline-offset: 3px;
 	}
-
-	// &:active {
-	// 	outline: 3px solid $clr-black;
-	// 	outline-offset: 3px;
-	// }
 }
 
 input {
@@ -154,8 +140,7 @@ fieldset {
 
 input,
 textarea {
-	// border: 1px solid red;
-	background-color: white;
+	background-color: transparent;
 	padding: 0;
 }
 
@@ -163,7 +148,6 @@ select:focus-visible,
 textarea:focus-visible,
 input:focus-visible {
 	outline: none;
-	// border-color: $primary;
 }
 
 hr {

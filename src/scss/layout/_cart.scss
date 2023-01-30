@@ -65,7 +65,11 @@
 	}
 }
 
-.icon-close__table {
+.table-cart__remove-button {
+	margin-left: 10px;
+}
+
+.table-cart__remove-icon {
 	stroke-width: 1px;
 	width: rem(12);
 	height: rem(12);
@@ -116,7 +120,6 @@
 
 .cart__summary {
 	display: flex;
-	// flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	gap: rem(16);
@@ -136,7 +139,7 @@
 	line-height: math.div(24, 16);
 }
 
-.cart____list-item {
+.cart__list-item {
 	&--last {
 		margin-top: rem(16);
 		background-color: var(--secondary300);

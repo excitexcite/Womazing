@@ -6,7 +6,7 @@
 	background-color: transparent;
 	position: fixed;
 	width: 100%;
-	z-index: 10;
+	z-index: 5;
 	top: 0;
 	left: 0;
 	padding-block: rem(10);
@@ -21,7 +21,7 @@
 	}
 
 	&--scrolled {
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+		box-shadow: var(--box-shadow-common);
 		background-color: var(--neutral100);
 	}
 }
@@ -86,8 +86,7 @@
 	left: 0;
 	transform: translateX(150%);
 	width: 100%;
-	height: 100vh;
-	padding: rem(55) rem(20) rem(156);
+	padding: rem(55) rem(20);
 	overflow: auto;
 	visibility: hidden;
 	background-color: var(--bg-color);
@@ -97,6 +96,7 @@
 	&--active {
 		transform: translateX(0);
 		visibility: visible;
+		box-shadow: var(--box-shadow-common);
 	}
 
 	@include mqm($tablet) {
