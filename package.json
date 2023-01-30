@@ -19,6 +19,8 @@
 	"author": "excite",
 	"license": "MIT",
 	"devDependencies": {
+		"a11y-dialog": "^7.5.2",
+		"body-scroll-lock": "^4.0.0-beta.0",
 		"browser-sync": "latest",
 		"css-mqpacker": "^7.0.0",
 		"del": "latest",

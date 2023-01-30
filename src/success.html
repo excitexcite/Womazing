@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Womazing</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Raleway:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="css/style.min.css" rel="stylesheet" />
+	</head>
+
+	<body tabindex="-1">
+		<div class="wrapper">
+			@@include('html/header.html', {})
+
+			<main class="page success">
+				<section class="page__heading page-heading">
+					<div class="page-heading__container">
+						<h1 class="page-heading__header">Заказ получен</h1>
+						<div class="page-heading__breadcrumbs breadcrumbs">
+							<ul class="breadcrumbs__list">
+								<li class="breadcrumbs__list-item">
+									<a
+										class="link-text breadcrumbs__link breadcrumbs__link"
+										href="index.html"
+										>Главная</a
+									>
+									<span class="breadcrumbs__line"></span>
+								</li>
+								<li class="breadcrumbs__list-item">
+									<a
+										class="link-text breadcrumbs__link breadcrumbs__link"
+										href="index.html"
+										>Оформление заказа</a
+									>
+									<span class="breadcrumbs__line"></span>
+								</li>
+								<li class="breadcrumbs__list-item breadcrumbs__list-item--last">
+									<a
+										class="link-text breadcrumbs__link breadcrumbs__link--active"
+										href="shop.html"
+										>Заказ получен</a
+									>
+									<span class="breadcrumbs__line"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section class="success__body confirmed">
+					<div class="confirmed__container">
+						<div class="confirmed__col1">
+							<span class="confirmed__image-wrapper">
+								<svg class="icon icon-check confirmed__icon">
+									<use xlink:href="@img/symbol-defs.svg#icon-check"></use>
+								</svg>
+							</span>
+
+							<div class="confirmed__text-wrapper">
+								<p class="confirmed__title">Заказ успешно оформлен</p>
+								<p class="confirmed__text">
+									Мы свяжемся с вами в ближайшее время!
+								</p>
+							</div>
+						</div>
+
+						<div class="confirmed__cta-wrapper">
+							<a
+								class="button button-primary-outlined confirmed__cta"
+								href="index.html"
+								>Перейти на главную</a
+							>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			@@include('html/footer.html', {}) @@include('html/popup.html', {})
+		</div>
+		<script src="js/app.min.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+	</body>
+</html>

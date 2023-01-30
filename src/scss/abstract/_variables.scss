@@ -1,19 +1,20 @@
 $maxWidth: 1920;
-$minWidth: 428;
-$maxWidthContainer: 1280 + 80;
+$minWidth: 375;
+$widthContainer: 1110;
+$maxWidthContainer: 1110;
 $baseFontSize: 16;
 
-$mobile: 428;
+$mobile: 375;
+$mobile-m: 425;
 $tablet: 768;
 $pc: 900;
+$pc-m: 1240;
 
-$buttonTransition: 300ms;
+$defaultTransition: 500ms ease;
+$buttonTransition: 500ms ease;
 $buttonDelay: 0;
-$linkTransition: 200ms;
+$linkTransition: 500ms ease;
 $linkDelay: 0;
-
-$themeColorTransition: color 500ms ease-in-out,
-	background-color 500ms ease-in-out;
 
 $dropdownTransition: 280ms opacity 120ms ease-out,
 	280ms transform 120ms ease-out, 280ms visibility 120ms ease-out, 500ms color,

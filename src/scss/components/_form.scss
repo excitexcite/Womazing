@@ -1,0 +1,57 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form__title {
+	margin-bottom: rem(24);
+	font-weight: 500;
+	font-size: rem(25);
+
+	@include mqm($tablet) {
+		margin-bottom: rem(50);
+	}
+}
+
+.form__inputs-list {
+	display: flex;
+	flex-direction: column;
+	gap: rem(24);
+
+	@include mqm($tablet) {
+		gap: rem(35);
+	}
+}
+
+.form__inputs-item {
+	display: inline-flex;
+	align-items: center;
+	gap: rem(14);
+	max-width: 290px;
+	width: 100%;
+
+	@include mqm($tablet) {
+		max-width: 350px;
+	}
+}
+
+.form__label {
+	cursor: pointer;
+}
+
+.form__input-radio {
+	&:focus-visible ~ .form__label {
+		outline: 3px solid var(--neutral500);
+	}
+}
+
+.form__textarea {
+	min-height: rem(135) !important;
+	max-height: rem(250);
+	width: 100%;
+	resize: vertical;
+}

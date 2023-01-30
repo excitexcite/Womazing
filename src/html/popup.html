@@ -1,0 +1,47 @@
+<div class="popup" id="call-back-popup" aria-labelledby="popup-title">
+	<div data-a11y-dialog-hide class="popup__overlay"></div>
+	<div class="popup__content" role="document">
+		<button
+			class="button-icon popup__close"
+			type="button"
+			data-a11y-dialog-hide
+			aria-label="Close dialog"
+		>
+			<svg class="icon icon-close">
+				<use xlink:href="@img/symbol-defs.svg#icon-close"></use>
+			</svg>
+		</button>
+		<form class="popup__form form" action="">
+			<h3 class="popup__title" id="popup-title">Заказать обратный звонок</h3>
+			<ul class="popup__inputs">
+				<li class="popup__input-item">
+					<input
+						class="text-input popup__input"
+						type="text"
+						placeholder="Имя"
+						required
+					/>
+				</li>
+				<li class="popup__input-item">
+					<input
+						class="text-input popup__input"
+						type="text"
+						placeholder="E-mail"
+						required
+					/>
+				</li>
+				<li class="popup__input-item">
+					<input
+						class="text-input popup__input"
+						type="text"
+						placeholder="Телефон"
+						required
+					/>
+				</li>
+			</ul>
+			<button class="button button-primary popup__button">
+				Заказать звонок
+			</button>
+		</form>
+	</div>
+</div>

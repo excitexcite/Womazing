@@ -1,0 +1,63 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.confirmed__container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(30);
+	align-items: center;
+	justify-content: space-between;
+}
+
+.confirmed__image-wrapper {
+	line-height: 0;
+}
+
+.confirmed__col1 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: rem(16);
+
+	@include mqm($tablet) {
+		gap: rem(44);
+	}
+}
+
+.confirmed__icon {
+	width: rem(50);
+	height: rem(84);
+	fill: var(--primary400);
+
+	@include mqm($mobile-m) {
+		width: rem(72);
+	}
+}
+
+.confirmed__text-col {
+	font-weight: 500;
+	font-size: rem(17);
+	line-height: math.div(24, 16);
+}
+
+.confirmed__title {
+	margin-bottom: rem(17);
+	font-size: rem(20);
+
+	@include mqm($tablet) {
+		font-size: rem(25);
+	}
+}
+
+.confirmed__cta-wrapper {
+	margin-inline: auto;
+
+	@include mqm($mobile-m) {
+		margin: 0;
+	}
+}
+
+.confirmed__cta {
+	display: inline-block;
+}

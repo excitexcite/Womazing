@@ -1,0 +1,58 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.form-order__form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: rem(80);
+}
+
+.form-order__right,
+.form-order__left {
+	display: flex;
+	flex-direction: column;
+	gap: rem(80);
+	flex-basis: 290px;
+
+	@include mqm($tablet) {
+		flex-basis: rem(350);
+	}
+}
+
+.form-order__list {
+	gap: rem(16);
+}
+
+.summary-table {
+	font-weight: 500;
+	font-size: rem(17);
+	line-height: 1.5;
+	border-collapse: collapse;
+	width: 100%;
+
+	thead tr th {
+		font-weight: inherit;
+	}
+
+	td,
+	th {
+		padding: rem(16);
+	}
+}
+
+.summary-table__footer {
+	background-color: var(--secondary300);
+	font-size: rem(20);
+}
+
+.summary-table__row {
+	padding-bottom: rem(30);
+}
+
+.form-order__cta {
+	margin-top: rem(48);
+	align-self: flex-start;
+}

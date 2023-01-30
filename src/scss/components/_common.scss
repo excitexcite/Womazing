@@ -1,3 +1,178 @@
 @use "../abstract" as *;
 @use "../base" as *;
 @use "sass:math";
+
+.header-lg {
+	@include adaptive-font(28, 40);
+	margin-bottom: rem(45);
+
+	@include mqm($tablet) {
+		margin-bottom: rem(92);
+	}
+}
+
+.header-m {
+	@include adaptive-font(20, 25);
+}
+
+.button-icon {
+	cursor: pointer;
+	line-height: 0;
+}
+
+.button {
+	cursor: pointer;
+	padding: rem(18) rem(40);
+
+	@include mqm(375) {
+		padding: rem(22) rem(50);
+	}
+}
+
+.button-primary {
+	color: var(--neutral100);
+	background-color: var(--primary400);
+	transition: color $buttonTransition, background-color $buttonTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--primary500);
+		}
+	}
+}
+
+.button-primary-outlined {
+	color: var(--primary400);
+	background-color: transparent;
+	border: 1px solid var(--primary400);
+	transition: color $buttonTransition, background-color $buttonTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--primary400);
+			color: var(--neutral100);
+		}
+	}
+}
+
+.button-neutral-outlined {
+	color: var(--neutral500);
+	background-color: transparent;
+	border: 1px solid var(--neutral500);
+	transition: color $buttonTransition, background-color $buttonTransition;
+	padding: rem(19) rem(65);
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--neutral500);
+			color: var(--neutral100);
+		}
+	}
+
+	&--active {
+		background-color: var(--neutral500);
+		color: var(--neutral100);
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--primary400);
+		outline-offset: 3px;
+	}
+}
+
+.info-label {
+	color: var(--neutral500);
+	background-color: var(--secondary300);
+}
+
+.text-input {
+	min-height: rem(28);
+	border: 0;
+	border-bottom: 1px solid var(--neutral500);
+	width: 100%;
+
+	&::placeholder {
+		color: var(--input-placeholder-clr);
+	}
+
+	@include mqm($tablet) {
+		min-height: rem(40);
+	}
+}
+
+.text-input-numbers {
+	border: 1px solid var(--input-about-quantity-clr);
+	font-size: rem(20);
+	text-align: center;
+}
+
+.radio-button {
+	width: rem(22);
+	height: rem(22);
+	border: 1px solid var(--neutral500);
+	vertical-align: middle;
+	order: -1;
+	cursor: pointer;
+
+	&::before {
+		display: block;
+		content: "";
+		width: rem(10);
+		height: rem(10);
+		background-color: var(--neutral500);
+		transform-origin: center;
+		transform: translate(50%, 50%) scale(0);
+		transition: transform $defaultTransition, scale $defaultTransition;
+	}
+
+	&:checked::before {
+		transform: translate(50%, 50%) scale(1);
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.link {
+	cursor: pointer;
+	transition: color $defaultTransition;
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--primary400);
+		}
+	}
+}
+
+.link-text {
+	position: relative;
+	color: var(--primary400);
+	width: fit-content;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: rem(1);
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: var(--neutral500);
+		transform: scaleX(0);
+		transition: transform $defaultTransition;
+	}
+
+	@media (hover: hover) {
+		&:hover::before {
+			transform: scaleX(1);
+		}
+	}
+}
+
+.section {
+	margin-top: rem(130);
+}
+
+.logo {
+	display: inline-block;
+}

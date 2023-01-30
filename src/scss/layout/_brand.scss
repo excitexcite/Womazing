@@ -1,0 +1,61 @@
+@use "abstract" as *;
+@use "base" as *;
+@use "sass:math";
+
+.brand__cards {
+	display: flex;
+	flex-direction: column;
+	gap: rem(60);
+
+	@include mqm($tablet) {
+		gap: rem(130);
+	}
+}
+
+.brand__card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	gap: rem(30);
+
+	@include mqm($tablet) {
+		flex-direction: row;
+
+		&:nth-of-type(2n) {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.brand__image-wrapper {
+	flex-shrink: 0.5;
+}
+
+.brand__text-content {
+	font-weight: 500;
+	font-size: rem(17);
+	line-height: math.div(24, 16);
+
+	@include mqm($tablet) {
+		flex-basis: rem(550);
+	}
+}
+
+.brand__title {
+	margin-bottom: rem(24);
+	font-size: rem(25);
+
+	@include mqm($tablet) {
+		margin-bottom: rem(48);
+	}
+}
+
+.brand__cta-wrapper {
+	margin-top: rem(130);
+	text-align: center;
+}
+
+.brand__cta {
+	display: inline-block;
+}

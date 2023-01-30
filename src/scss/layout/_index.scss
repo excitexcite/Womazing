@@ -1,6 +1,16 @@
 @forward "header";
 @forward "footer";
 @forward "main";
+@forward "collection";
+@forward "important";
+@forward "team";
+@forward "shop";
+@forward "goods-details";
+@forward "brand";
+@forward "contacts";
+@forward "success";
+@forward "cart";
+@forward "order";
 
 @use "abstract" as *;
 @use "base" as *;

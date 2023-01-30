@@ -1,0 +1,92 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "sass:math";
+
+.popup,
+.popup__overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.popup {
+	z-index: 10;
+	display: flex;
+	overflow-y: auto;
+}
+
+.popup[aria-hidden="true"] {
+	display: none;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes slide-up {
+	from {
+		transform: translateY(10%);
+	}
+}
+
+.popup__overlay {
+	background-color: var(--popup-overlay);
+	animation: fade-in 250ms both;
+}
+
+.popup__content {
+	margin: auto;
+	z-index: 10;
+	position: relative;
+	background-color: var(--neutral100);
+	width: 90%;
+	max-width: rem(400);
+	padding: 40px 20px;
+	animation: fade-in 500ms 250ms both, slide-up 500ms 250ms both;
+
+	@include mqm($tablet) {
+		max-width: revert;
+		padding: rem(70);
+		width: rem(500);
+	}
+}
+
+.popup__form {
+	gap: rem(35);
+}
+
+.popup__close {
+	position: absolute;
+	top: rem(16);
+	right: rem(16);
+
+	@include mqm($tablet) {
+		top: rem(32);
+		right: rem(32);
+	}
+}
+
+.popup__title {
+	font-weight: 500;
+	@include adaptive-font(16, 25);
+	line-height: math.div(24, 16);
+	text-align: center;
+}
+
+.popup__inputs {
+	display: flex;
+	flex-direction: column;
+	gap: rem(35);
+}
+
+.popup__button {
+	line-height: 1;
+
+	@include mqm($tablet) {
+		line-height: 1.5;
+	}
+}
