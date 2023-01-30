@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Womazing</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Raleway:wght@400;500;700&display=swap&_v=20230130204757"
+			rel="stylesheet"
+		/>
+		<link href="css/style.min.css?_v=20230130204757" rel="stylesheet" />
+	</head>
+
+	<body tabindex="-1">
+		<div class="wrapper">
+			<header class="header">
+	<div class="header__container">
+		<div class="header__logo-wrapper">
+			<a class="logo logo__link" href="index.html">
+				<img class="logo__img" src="img/logo_full.svg" alt="Womazing logo" />
+			</a>
+		</div>
+		<div class="header__menu menu">
+			<button
+				class="menu__togle menu-button"
+				aria-controls="mobile-navigation"
+				aria-hidden="false"
+			>
+				<span class="visually-hidden">Menu</span>
+				<span class="menu-button__icon" aria-hidden="true"></span>
+			</button>
+			<nav class="menu__body" aria-label="Mobile Navigation">
+				<ul class="menu__list">
+					<li class="menu__list-item">
+						<a
+							class="link header__menu-link menu__link menu__link--active"
+							href="index.html"
+							>Главная</a
+						>
+					</li>
+					<li class="menu__list-item">
+						<a class="link header__menu-link menu__link" href="shop.html"
+							>Магазин</a
+						>
+					</li>
+					<li class="menu__list-item">
+						<a class="link header__menu-link menu__link" href="brand.html"
+							>О бренде</a
+						>
+					</li>
+					<li class="menu__list-item">
+						<a class="link header__menu-link menu__link" href="contacts.html"
+							>Контакты</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="header__col-actions">
+			<div class="header__tel">
+				<button
+					class="button-icon header__tel-icon"
+					data-a11y-dialog-show="call-back-popup"
+					id="popup-button-callback"
+				>
+					<svg class="icon icon-phone">
+						<use xlink:href="img/symbol-defs.svg#icon-phone"></use>
+					</svg>
+				</button>
+				<a class="link header__tel-number" href="tel:+44958235412"
+					>+4 (495) 823-54-12</a
+				>
+			</div>
+
+			<a class="header__shop-bag bag" href="cart.html">
+				<svg class="icon icon-shopping-bag">
+					<use xlink:href="img/symbol-defs.svg#icon-shopping-bag"></use>
+				</svg>
+				<span class="bag__item-count">3</span>
+			</a>
+		</div>
+	</div>
+</header>
+
+
+			<main class="page contacts"><section class="page__heading page-heading">
+	<div class="page-heading__container">
+		<h1 class="page-heading__header">Контакты</h1>
+		<div class="page-heading__breadcrumbs breadcrumbs">
+			<ul class="breadcrumbs__list">
+				<li class="breadcrumbs__list-item">
+					<a
+						class="link-text breadcrumbs__link breadcrumbs__link"
+						href="index.html"
+						>Главная</a
+					>
+					<span class="breadcrumbs__line"></span>
+				</li>
+				<li class="breadcrumbs__list-item breadcrumbs__list-item--last">
+					<a
+						class="link-text breadcrumbs__link breadcrumbs__link--active"
+						href="brand.html"
+						>Контакты</a
+					>
+					<span class="breadcrumbs__line"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="contacts__info">
+	<div class="contacts__container">
+		<div class="contacts__map-wrapper"></div>
+
+		<div class="contacts__shop-info">
+			<ul class="contacts__info-list">
+				<li class="contacts__info-list-item">
+					<p class="contacts__info-item-title">Телефон</p>
+					<p class="contacts__info-item-text">+4 (495) 823-54-12</p>
+				</li>
+				<li class="contacts__info-list-item">
+					<p class="contacts__info-item-title">E-mail</p>
+					<p class="contacts__info-item-text">info@sitename.com</p>
+				</li>
+				<li class="contacts__info-list-item">
+					<p class="contacts__info-item-title">Адрес</p>
+					<p class="contacts__info-item-text">Лондон, Бейкер-стрит 221Б</p>
+				</li>
+			</ul>
+		</div>
+
+		<div class="contacts__form-wrapper">
+			<form class="contacts__form form" action="">
+				<section class="form__section">
+					<h2 class="contacts__form-title form__title">Напишите нам</h2>
+					<ul class="contacts__inputs-list form__inputs-list">
+						<li class="form__inputs-item">
+							<input
+								class="text-input form__input"
+								type="text"
+								placeholder="Имя"
+								maxlength="25"
+							/>
+						</li>
+						<li class="form__inputs-item">
+							<input
+								class="text-input form__input"
+								type="email"
+								placeholder="E-mail"
+								maxlength="40"
+							/>
+						</li>
+						<li class="form__inputs-item">
+							<input
+								class="text-input form__input"
+								type="tel"
+								placeholder="Телефон"
+								maxlength="12"
+							/>
+						</li>
+						<li class="form__inputs-item">
+							<textarea
+								class="text-input form__textarea"
+								name=""
+								id=""
+								placeholder="Сообщение"
+							></textarea>
+						</li>
+						<li class="form__inputs-item">
+							<button class="button button-primary contacts__form-button">
+								Отправить
+							</button>
+						</li>
+					</ul>
+				</section>
+
+				<p class="contacts__form-proccess-msg">Сообщение успешно отправлено</p>
+			</form>
+		</div>
+	</div>
+</section>
+</main>
+			<footer class="footer page__footer section">
+	<div class="footer__container">
+		<div class="footer__col1">
+			<div class="footer__logo-wrapper">
+				<a class="logo logo__link" href="index.html">
+					<img class="logo__img" src="img/logo_full.svg" alt="Womazing logo" />
+				</a>
+			</div>
+			<div class="footer__copy-wrapper">
+				<p class="">© Все права защищены</p>
+				<a class="link" href="#">Политика конфиденциальности</a>
+				<a class="link" href="#">Публичная оферта</a>
+			</div>
+		</div>
+
+		<nav class="footer__nav">
+			<ul class="menu__list footer__menu-list">
+				<li class="menu__list-item">
+					<a class="link menu__link menu__link--active" href="index.html"
+						>Главная</a
+					>
+				</li>
+				<li class="menu__list-item">
+					<a class="link menu__link" href="shop.html">Магазин</a>
+					<ul class="footer__nav-sublist">
+						<li class="footer__nav-sublist">
+							<a class="link menu__link" href="">Пальто</a>
+						</li>
+						<li class="footer__nav-sublist">
+							<a class="link menu__link" href="">Свитшоты</a>
+						</li>
+						<li class="footer__nav-sublist">
+							<a class="link menu__link" href="">Кардиганы</a>
+						</li>
+						<li class="footer__nav-sublist">
+							<a class="link menu__link" href="">Толстовки</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu__list-item">
+					<a class="link menu__link" href="brand.html">О бренде</a>
+				</li>
+				<li class="menu__list-item">
+					<a class="link menu__link" href="contacts.html">Контакты</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="footer__info">
+			<div class="footer__contacts">
+				<a class="link" href="tel:+44958235412">+4 (495) 823-54-12</a>
+				<a class="link" href="mailto:hello@womazing.com">hello@womazing.com</a>
+			</div>
+			<div class="footer__socials">
+				<a class="footer__social-link" href="#">
+					<span class="visually-hidden">Instagram</span>
+					<svg class="icon icon-instagram">
+						<use xlink:href="img/symbol-defs.svg#icon-instagram"></use>
+					</svg>
+				</a>
+				<a class="footer__social-link" href="#">
+					<span class="visually-hidden">Facebook</span>
+					<svg class="icon icon-facebook">
+						<use xlink:href="img/symbol-defs.svg#icon-facebook"></use>
+					</svg>
+				</a>
+				<a class="footer__social-link" href="#">
+					<span class="visually-hidden">Twitter</span>
+					<svg class="icon icon-twitter">
+						<use xlink:href="img/symbol-defs.svg#icon-twitter"></use>
+					</svg>
+				</a>
+			</div>
+			<div class="footer__payment-option">
+				<picture><source srcset="img/visa-mastercard.webp" type="image/webp"><img class="img" src="img/visa-mastercard.png" alt="" /></picture>
+			</div>
+		</div>
+	</div>
+</footer>
+ <div class="popup" id="call-back-popup" aria-labelledby="popup-title">
+	<div data-a11y-dialog-hide class="popup__overlay"></div>
+	<div class="popup__content" role="document">
+		<button
+			class="button-icon popup__close"
+			type="button"
+			data-a11y-dialog-hide
+			aria-label="Close dialog"
+		>
+			<svg class="icon icon-close">
+				<use xlink:href="img/symbol-defs.svg#icon-close"></use>
+			</svg>
+		</button>
+		<form class="popup__form form" action="">
+			<h3 class="popup__title" id="popup-title">Заказать обратный звонок</h3>
+			<ul class="popup__inputs">
+				<li class="popup__input-item">
+					<input
+						class="text-input popup__input"
+						type="text"
+						placeholder="Имя"
+						required
+					/>
+				</li>
+				<li class="popup__input-item">
+					<input
+						class="text-input popup__input"
+						type="text"
+						placeholder="E-mail"
+						required
+					/>
+				</li>
+				<li class="popup__input-item">
+					<input
+						class="text-input popup__input"
+						type="text"
+						placeholder="Телефон"
+						required
+					/>
+				</li>
+			</ul>
+			<button class="button button-primary popup__button">
+				Заказать звонок
+			</button>
+		</form>
+	</div>
+</div>
+
+		</div>
+		<script src="js/app.min.js?_v=20230130204757" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js?_v=20230130204757"></script>
+	</body>
+</html>
