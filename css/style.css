@@ -2724,7 +2724,7 @@ th {
 }
 
 .pagination__button {
-  padding: 0.75rem 1.03125rem;
+  padding: 0.75rem 1.03125rem !important;
 }
 
 .pagination__arrow {
@@ -3235,7 +3235,7 @@ th {
 }
 
 .form-order__list {
-  gap: 1rem;
+  gap: 1rem !important;
 }
 
 .summary-table {
